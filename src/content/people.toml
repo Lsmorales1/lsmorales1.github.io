@@ -1,0 +1,12 @@
+[alex-morgan]
+id          = "alex-morgan"
+name        = "Alex Morgan"
+pronouns    = "they/them"
+avatar      = "https://gravatar.com/avatar/00000000000000000000000000000000?size=512&d=mp"
+bio         = "Computational social scientist and open-methods researcher."
+affiliation = "Center for Open Inquiry"
+
+[alex-morgan.links]
+website = "https://astro-scholar.pages.dev"
+email   = "alex@example.edu"
+github  = "https://github.com/mychiffonn/astro-scholar"

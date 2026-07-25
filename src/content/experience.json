@@ -1,0 +1,28 @@
+[
+  {
+    "id": "example-lab-2024",
+    "category": "research",
+    "title": "Research Fellow",
+    "org": "Center for Open Inquiry",
+    "startDate": "2024-09",
+    "location": "Example City",
+    "description": "Developing open and reproducible methods for computational social science."
+  },
+  {
+    "id": "example-university-2023",
+    "category": "teaching",
+    "title": "Instructor, Data and Society",
+    "org": "Example University",
+    "startDate": "2023-01",
+    "endDate": "2024-06",
+    "description": "Designed project-based coursework on responsible data analysis and communication."
+  },
+  {
+    "id": "example-phd-2023",
+    "category": "education",
+    "title": "Ph.D. in Information Science",
+    "org": "Example University",
+    "startDate": "2018-09",
+    "endDate": "2023-05"
+  }
+]

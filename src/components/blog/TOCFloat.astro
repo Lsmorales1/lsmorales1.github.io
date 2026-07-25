@@ -1,0 +1,104 @@
+---
+import type { MarkdownHeading } from "astro"
+
+import { getHeadingWidth } from "@/lib/blog/toc"
+
+interface Props {
+  headings: MarkdownHeading[]
+  class?: string
+}
+
+const { headings, class: className } = Astro.props
+---
+
+<toc-float class:list={["toc-summary-container", className]}>
+  {headings.map((heading) => {
+      const widthClass = getHeadingWidth(heading.depth).replace("w-", "")
+
+      return (
+        <a
+          href={`#${heading.slug}`}
+          data-width={widthClass}
+          data-heading-link={heading.slug}
+        />
+      )
+    })}
+</toc-float>
+
+<style>
+  toc-float {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
+  a {
+    block-size: 0.125rem;
+    inline-size: calc(var(--width, 2) * 0.25rem);
+    background: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
+    transition: background-color var(--motion-duration) var(--motion-ease);
+  }
+
+  a[data-width="1"] {
+    --width: 1;
+  }
+
+  a[data-width="1.5"] {
+    --width: 1.5;
+  }
+
+  a[data-width="2"] {
+    --width: 2;
+  }
+
+  a[data-width="3"] {
+    --width: 3;
+  }
+
+  a[data-width="4"] {
+    --width: 4;
+  }
+
+  a[data-width="5"] {
+    --width: 5;
+  }
+
+  a[data-width="6"] {
+    --width: 6;
+  }
+
+  a[data-active] {
+    background: var(--accent);
+  }
+</style>
+
+<script>
+  import { UnifiedTOCController } from "@/lib/blog/scroll"
+
+  let controller: UnifiedTOCController | null = null
+
+  function initController() {
+    // astro:after-swap can run before the new content is fully ready.
+    // A small delay ensures the container is present.
+    requestAnimationFrame(() => {
+      if (controller) {
+        controller.cleanup()
+      }
+
+      controller = new UnifiedTOCController(
+        ".toc-summary-container",
+        "[data-heading-link]",
+      )
+      controller.init()
+    })
+  }
+
+  function cleanupController() {
+    controller?.cleanup()
+    controller = null
+  }
+
+  document.addEventListener("astro:page-load", initController)
+  document.addEventListener("astro:after-swap", initController)
+  document.addEventListener("astro:before-swap", cleanupController)
+</script>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  href: string
+  external?: boolean
+  class?: string
+  underline?: boolean
+  [key: string]: any
+}
+
+const { href, external, class: className, underline, ...rest } = Astro.props
+const isExternal = external ?? /^https?:\/\//.test(href)
+---
+
+<a
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer nofollow" : undefined}
+  data-link
+  data-external={isExternal || undefined}
+  data-underline={underline || undefined}
+  class={className}
+  {...rest}
+>
+  <slot />
+</a>
+
+<style>
+  [data-link] {
+    color: inherit;
+    transition:
+      color var(--motion-duration-fast) var(--motion-ease),
+      text-decoration-color var(--motion-duration) var(--motion-ease);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    [data-link]:hover {
+      color: var(--accent);
+    }
+  }
+
+  [data-link][data-underline] {
+    --underline: var(--muted-foreground);
+  }
+</style>

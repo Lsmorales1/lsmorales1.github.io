@@ -1,0 +1,123 @@
+---
+import { PROFILE } from "@site-config"
+import Button from "@/components/base/Button.astro"
+import Icon from "@/components/base/Icon.astro"
+
+import { getProcessedProfileLinks, type ProfileLinkConfig } from "./helper"
+
+interface Props {
+  links?: ProfileLinkConfig | Record<string, string>
+  class?: string
+  highlight?: boolean
+  includeEmail?: boolean
+  includeRss?: boolean
+}
+
+const {
+  links,
+  class: className = "",
+  highlight = false,
+  includeEmail = false,
+  includeRss = false,
+} = Astro.props
+
+const highlightKeys = new Set(PROFILE.highlightLinks)
+const processedLinks = getProcessedProfileLinks(links, includeRss, includeEmail)
+---
+
+<ul class:list={["profile-links", className]}>
+  {processedLinks.map(({ key, href, isExternal, label, iconName }) => {
+      const isPrimary = highlight && highlightKeys.has(key)
+      return (
+        <li>
+          <Button
+            href={href}
+            external={isExternal}
+            variant={isPrimary ? "primary" : "outline"}
+            size="square"
+            title={label}
+            rel="me"
+            class="profile-link"
+            data-primary={isPrimary ? "true" : undefined}
+          >
+            <Icon name={iconName} />
+            <span class="sr-only" set:html={label} />
+          </Button>
+        </li>
+      )
+    })}
+</ul>
+
+<style>
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* The hover fill is the element's own background so it always sits flush
+     against the border, whatever the border width or radius becomes. */
+  .profile-link {
+    color: var(--muted-foreground);
+    transition:
+      background-color var(--motion-duration) var(--motion-ease),
+      border-color var(--motion-duration) var(--motion-ease),
+      box-shadow var(--motion-duration) var(--motion-ease),
+      color var(--motion-duration-fast) var(--motion-ease);
+  }
+
+  .profile-link :global(svg) {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+    transition: transform var(--motion-duration) var(--motion-ease);
+  }
+
+  @media (pointer: coarse), (pointer: none), (any-pointer: coarse) {
+    .profile-link :global(svg) {
+      inline-size: 1.375rem;
+      block-size: 1.375rem;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .profile-link:hover,
+    .profile-link[data-link]:hover {
+      background-color: var(--accent);
+      border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+      color: var(--accent-foreground);
+      box-shadow: 0 0.35rem 1rem
+        color-mix(in oklab, var(--accent) 16%, transparent);
+    }
+
+    .profile-link[data-primary="true"]:hover,
+    .profile-link[data-primary="true"][data-link]:hover {
+      background-color: var(--background);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 0.35rem 1rem
+        color-mix(in oklab, var(--primary) 18%, transparent);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) and (
+      prefers-reduced-motion: no-preference
+    ) {
+    .profile-link:hover :global(svg) {
+      transform: scale(1.08);
+    }
+  }
+
+  .profile-link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .profile-link[data-primary="true"] {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+</style>

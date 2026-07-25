@@ -1,0 +1,173 @@
+---
+import Button from "@/components/base/Button.astro"
+import Dropdown from "@/components/base/Dropdown.astro"
+import Icon from "@/components/base/Icon.astro"
+---
+
+<Dropdown align="end" id="theme-dropdown">
+  <Button
+    slot="trigger"
+    variant="ghost"
+    size="square"
+    title="Theme"
+    data-dropdown-trigger
+  >
+    <div class="theme-icon-stack" aria-hidden="true">
+      <Icon name="mingcute:sun-line" size="1.5rem" class="theme-icon-light" />
+      <Icon name="mingcute:moon-line" size="1.5rem" class="theme-icon-dark" />
+    </div>
+    <span class="sr-only">Toggle theme</span>
+  </Button>
+
+  <div class="theme-menu">
+    <button data-dropdown-item data-theme-value="light">
+      <Icon name="mingcute:sun-line" size="1.25rem" />
+      Light
+    </button>
+    <button data-dropdown-item data-theme-value="dark">
+      <Icon name="mingcute:moon-line" size="1.25rem" />
+      Dark
+    </button>
+    <button data-dropdown-item data-theme-value="auto">
+      <Icon name="monitor" size="1.25rem" />
+      Auto
+    </button>
+  </div>
+</Dropdown>
+
+<style>
+  /* Stack both icons in the same grid cell so they size the button identically to a single icon */
+  .theme-icon-stack {
+    display: grid;
+    place-items: center;
+  }
+  .theme-icon-light,
+  .theme-icon-dark {
+    grid-area: 1 / 1;
+    transition:
+      transform var(--motion-duration) var(--motion-ease),
+      opacity var(--motion-duration) var(--motion-ease);
+  }
+  .theme-icon-dark {
+    opacity: 0;
+    transform: scale(0.6) rotate(-45deg);
+  }
+  :global([data-theme="dark"]) .theme-icon-light {
+    opacity: 0;
+    transform: scale(0.6) rotate(-45deg);
+  }
+  :global([data-theme="dark"]) .theme-icon-dark {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  button[data-dropdown-item] {
+    gap: 0.5rem;
+  }
+
+  :global(.theme-no-transition *),
+  :global(.theme-no-transition *::before),
+  :global(.theme-no-transition *::after) {
+    transition: none !important;
+  }
+</style>
+
+<script is:inline data-astro-rerun>
+  ;(() => {
+    const stored = localStorage?.getItem("theme") ?? "auto"
+    const preference = ["light", "dark", "auto"].includes(stored)
+      ? stored
+      : "auto"
+    const resolved =
+      preference === "auto"
+        ? window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+        : preference
+
+    document.documentElement.setAttribute("data-theme", resolved)
+    document.documentElement.classList.add(
+      resolved === "dark" ? "scheme-dark" : "scheme-light",
+    )
+    localStorage.setItem("theme", preference)
+  })()
+</script>
+
+<script>
+  function resolveTheme(preference: string): string {
+    if (preference === "auto") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+    }
+    return preference
+  }
+
+  function applyTheme(resolved: string) {
+    const el = document.documentElement
+    el.classList.add("theme-no-transition")
+    el.setAttribute("data-theme", resolved)
+    el.classList.remove("scheme-dark", "scheme-light")
+    el.classList.add(resolved === "dark" ? "scheme-dark" : "scheme-light")
+
+    window.getComputedStyle(el).getPropertyValue("opacity")
+
+    requestAnimationFrame(() => {
+      el.classList.remove("theme-no-transition")
+    })
+  }
+
+  function updateActiveItem() {
+    const stored = localStorage.getItem("theme") ?? "auto"
+    document
+      .querySelectorAll<HTMLButtonElement>("#theme-dropdown [data-theme-value]")
+      .forEach((btn) => {
+        if (btn.dataset.themeValue === stored) {
+          btn.setAttribute("data-active", "")
+        } else {
+          btn.removeAttribute("data-active")
+        }
+      })
+  }
+
+  function handleThemeItemClick(e: Event) {
+    const btn = (e.target as Element).closest<HTMLButtonElement>(
+      "[data-theme-value]",
+    )
+    if (!btn) return
+    const preference = btn.dataset.themeValue!
+    localStorage.setItem("theme", preference)
+    applyTheme(resolveTheme(preference))
+    updateActiveItem()
+  }
+
+  function bindThemeHandlers() {
+    const container = document.getElementById("theme-dropdown")
+    if (!container || container.hasAttribute("data-theme-bound")) return
+    container.setAttribute("data-theme-bound", "")
+    container.addEventListener("click", handleThemeItemClick)
+  }
+
+  function initThemeDropdown() {
+    bindThemeHandlers()
+    updateActiveItem()
+  }
+
+  // Track OS changes for "auto" mode
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      const stored = localStorage.getItem("theme") ?? "auto"
+      if (stored === "auto") {
+        applyTheme(resolveTheme("auto"))
+      }
+    })
+
+  initThemeDropdown()
+
+  document.addEventListener("astro:after-swap", () => {
+    const stored = localStorage.getItem("theme") ?? "auto"
+    applyTheme(resolveTheme(stored))
+    initThemeDropdown()
+  })
+</script>

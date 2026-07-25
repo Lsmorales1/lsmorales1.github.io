@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Abstract scholar avatar</title>
+  <desc id="description">A lavender circle with a mint constellation and central star.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ddd3f2"/>
+      <stop offset="1" stop-color="#8170b2"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#background)"/>
+  <g fill="none" stroke="#b6e3ca" stroke-width="6" stroke-linecap="round" opacity=".9">
+    <path d="m112 320 88-160 104 72 96-96"/>
+    <path d="m200 160 56 192 48-120"/>
+  </g>
+  <g fill="#d8f3e3">
+    <circle cx="112" cy="320" r="12"/>
+    <circle cx="200" cy="160" r="12"/>
+    <circle cx="304" cy="232" r="12"/>
+    <circle cx="400" cy="136" r="12"/>
+  </g>
+  <path fill="#fff" d="m256 190 18 48 48 18-48 18-18 48-18-48-48-18 48-18z"/>
+</svg>
