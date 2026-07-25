@@ -32,6 +32,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "sync": "astro sync",
+    "generate:favicons": "node scripts/generate-favicons.mjs",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "lint": "oxlint --type-aware",
