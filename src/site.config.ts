@@ -7,7 +7,7 @@ import type {
 } from "@/types"
 
 export const SITE: SiteConfig = {
-  title: "Alex Morgan",
+  title: "Astro Scholar",
   description:
     "Research in computational social science, open methods, and responsible computing.",
   href: "https://astro-scholar.pages.dev",
@@ -48,14 +48,14 @@ export const SITE: SiteConfig = {
 }
 
 export const PROFILE: ProfileConfig = {
-  name: SITE.author,
-  tagline: "Computational social scientist and open-methods researcher",
+  name: SITE.title,
+  tagline: "Computational social scientist and open-methods",
   email: "alex@example.edu",
   location: "Example City",
   pronouns: "they/them",
   links: {
     github: "https://github.com/mychiffonn/astro-scholar",
-    website: SITE.href,
+    website: "https://mychiffonn.com/",
   },
   highlightLinks: ["github"],
 }
