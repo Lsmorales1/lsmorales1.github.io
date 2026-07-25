@@ -8,15 +8,15 @@ tags:
   - release
   - theme
 authors:
-  - alex-morgan
+  - mychiffon
 stage: evergreen
 audience: Researchers, students, and technical writers looking for an Astro portfolio and blog theme.
 ---
 
-Astro Scholar 2.1.0 is a reusable open-source theme for **academic profiles**,
-_research blogs_, projects, and publications. The included demonstration site
-is designed to be installed, understood, and replaced with your own scholarly
-work.[^portable]
+Astro Scholar 2.1.0 turns the site behind my portfolio into a reusable
+open-source theme for **academic profiles**, _research blogs_, projects, and
+publications. What began as a personal site is now a starter that other
+researchers can install, understand, and make their own.[^portable]
 
 ![A light and dark research workspace with connected publication, code, chart, and writing cards.](./assets/astro-scholar-release.png)
 

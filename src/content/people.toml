@@ -1,12 +1,13 @@
-[alex-morgan]
-id          = "alex-morgan"
-name        = "Alex Morgan"
-pronouns    = "they/them"
-avatar      = "https://gravatar.com/avatar/00000000000000000000000000000000?size=512&d=mp"
-bio         = "Computational social scientist and open-methods researcher."
-affiliation = "Center for Open Inquiry"
+[mychiffon]
+id       = "mychiffon"
+name     = "My (Chiffon) Nguyen"
+pronouns = "she/her/hers"
+avatar   = "https://gravatar.com/avatar/47b0b83e2fd2cf8838cce30a44e11b7d331cf73a77f7c413f4c4bee986d848c7?size=512&d=initials"
+bio      = "Researcher, Developer, Teacher, and Life-long Learner"
 
-[alex-morgan.links]
-website = "https://astro-scholar.pages.dev"
-email   = "alex@example.edu"
-github  = "https://github.com/mychiffonn/astro-scholar"
+[mychiffon.links]
+website       = "https://mychiffonn.com"
+email         = "hi@mychiffonn.com"
+github        = "https://github.com/mychiffonn"
+googleScholar = "https://scholar.google.com/citations?user=a25a-rUAAAAJ"
+x = "https://x.com/chiffonng"
