@@ -35,6 +35,8 @@ export const SITE: SiteConfig = {
 
   home: {
     careerHighlightCount: 4,
+    updateCount: 3,
+    publicationCount: 3,
   },
 
   favicon: "/favicon.ico",
