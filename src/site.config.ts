@@ -59,7 +59,14 @@ export const PROFILE: ProfileConfig = {
     github: "https://github.com/mychiffonn/astro-scholar",
     website: "https://mychiffonn.com/",
   },
-  highlightLinks: ["github"],
+  // where the links above show up. true = that section's default set, false or
+  // [] = none, or list keys in the order you want them. The header renders its
+  // set as bare icons, so it defaults to a handful rather than everything.
+  linksPlacement: {
+    header: ["email", "github"],
+    about: false,
+    footer: true,
+  },
 }
 
 export const NAV_LINKS: LinkConfig[] = [
