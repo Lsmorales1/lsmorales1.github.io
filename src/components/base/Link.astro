@@ -40,5 +40,10 @@ const isExternal = external ?? /^https?:\/\//.test(href)
 
   [data-link][data-underline] {
     --underline: var(--muted-foreground);
+    text-decoration-skip-ink: auto;
+  }
+
+  [data-link][data-underline]:is(:hover, :focus-visible) {
+    text-decoration-color: currentColor;
   }
 </style>
