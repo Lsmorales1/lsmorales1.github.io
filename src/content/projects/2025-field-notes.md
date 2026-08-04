@@ -10,8 +10,6 @@ skills:
   - Astro
   - TypeScript
   - Information design
-tags:
-  - Research communication
 ---
 
 This example shows how a small scholarly tool can connect project notes, blog

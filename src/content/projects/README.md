@@ -36,9 +36,6 @@ skills:
   - "R"
 selected: true
 release: "https://github.com/username/synthetic-control/releases/tag/v1.0.0"
-tags:
-  - "causal inference"
-  - "statistics"
 ---
 ```
 
@@ -58,7 +55,6 @@ tags:
 | `skills` | String[] | ❌ | Free-form skills and technologies used by the project | Filterable on the projects page; unique values are aggregated into the Tech Stack section |
 | `selected` | Boolean | ❌ | Whether to feature this project | Defaults to `false` |
 | `release` | URL | ❌ | Link to release or deployment | Must be a valid URL |
-| `tags` | String[] | ❌ | Free-form topics, methods, organizations, and keywords | Display-only badges; will be deduplicated |
 
 ## Notes
 
