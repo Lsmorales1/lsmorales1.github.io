@@ -1,0 +1,31 @@
+<div id="main-header" class="menu-bar">
+  <slot />
+</div>
+
+<style>
+  .menu-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    isolation: isolate;
+    margin-inline: calc(-1 * var(--grid-gutter));
+    padding-inline: var(--grid-gutter);
+  }
+
+  .menu-bar::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 50%;
+    z-index: -1;
+    inline-size: 100vw;
+    border-block-end: 1px solid var(--border);
+    background: color-mix(in oklab, var(--background) 86%, transparent);
+    backdrop-filter: blur(10px);
+
+    /* This pseudo-element is 100vw wide, so without this the sticky bar's hit
+       area extends across the full viewport at its own height, above `main`. */
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+</style>
