@@ -62,17 +62,24 @@ const {
     <MenuBar>
       <Header />
       {Astro.slots.has("subposts-navigation-header") && (
-        <slot name="subposts-navigation-header" aria-label="Post-subposts navigation" />
-      )}
+          <slot
+            name="subposts-navigation-header"
+            aria-label="Post-subposts navigation"
+          />
+        )}
       {Astro.slots.has("toc-header") && (
-        <slot name="toc-header" aria-label="Table of contents" />
-      )}
+          <slot name="toc-header" aria-label="Table of contents" />
+        )}
     </MenuBar>
     {(breadcrumbs || Astro.slots.has("breadcrumb")) && (
-      <div class="breadcrumb-region">
-        {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : <slot name="breadcrumb" />}
-      </div>
-    )}
+        <div class="breadcrumb-region">
+          {breadcrumbs ? (
+            <Breadcrumbs items={breadcrumbs} />
+          ) : (
+            <slot name="breadcrumb" />
+          )}
+        </div>
+      )}
     <main class={className}>
       <slot />
     </main>
