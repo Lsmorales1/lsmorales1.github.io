@@ -10,7 +10,6 @@ skills:
   - Astro
   - TypeScript
   - Information design
-selected: true
 tags:
   - Research communication
 ---

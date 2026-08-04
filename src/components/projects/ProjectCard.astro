@@ -23,7 +23,7 @@ interface Props {
 const { project } = Astro.props
 const {
   title,
-  isHighlighted,
+  selected,
   fromDate,
   toDate,
   code,
@@ -43,7 +43,7 @@ const hasDetailPage = !!project.body?.trim()
 <Card
   href={hasDetailPage ? `/projects/${project.id}` : undefined}
   label={hasDetailPage ? `View details for ${title}` : undefined}
-  selected={isHighlighted}
+  selected={selected}
   class="project-card"
   data-project-types={types.join(",")}
   data-project-skills={skills.map((skill) => slugify(skill)).join(",")}

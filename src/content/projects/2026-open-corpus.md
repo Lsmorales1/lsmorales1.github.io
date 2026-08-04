@@ -10,7 +10,6 @@ skills:
   - Data curation
   - Reproducible research
 selected: true
-isHighlighted: true
 tags:
   - Multilingual NLP
   - Open science

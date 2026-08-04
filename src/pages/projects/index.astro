@@ -22,12 +22,8 @@ import "@/styles/chip-filter.css"
 
 // Fetch and categorize projects in single operation
 const allProjects = await getProjects()
-const featuredProjects = allProjects.filter(
-  (project) => project.data.isHighlighted,
-)
-const otherProjects = allProjects.filter(
-  (project) => !project.data.isHighlighted,
-)
+const featuredProjects = allProjects.filter((project) => project.data.selected)
+const otherProjects = allProjects.filter((project) => !project.data.selected)
 const typeCounts = getProjectTypeCounts(allProjects)
 const skillCounts = getProjectSkillCounts(allProjects, 1)
 const recurringSkillCounts = skillCounts.filter(({ count }) => count > 1)
