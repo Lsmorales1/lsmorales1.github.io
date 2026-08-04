@@ -10,9 +10,6 @@ skills:
   - Data curation
   - Reproducible research
 selected: true
-tags:
-  - Multilingual NLP
-  - Open science
 ---
 
 This sample project demonstrates how to describe a research question, document
