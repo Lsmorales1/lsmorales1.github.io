@@ -55,8 +55,7 @@ export const PROFILE: ProfileConfig = {
   email: "lsmoralesc@unbosque.edu.co",
   location: "Bogotá",
   links: {
-    github: "https://github.com/mychiffonn/astro-scholar",
-    website: "https://mychiffonn.com/",
+    github: "",
   },
   // where the links above show up. true = that section's default set, false or
   // [] = none, or list keys in the order you want them. The header renders its
@@ -98,10 +97,7 @@ export const PUB_CONFIG: PublicationConfig = {
 }
 
 export const FOOTER: FooterConfig = {
-  credits: true,
-  sourceCode: "https://github.com/mychiffonn/astro-scholar",
-  sourceContent:
-    "https://github.com/mychiffonn/astro-scholar/tree/main/src/content",
+
   footerLinks: [],
 }
 
