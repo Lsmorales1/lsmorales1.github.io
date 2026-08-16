@@ -72,7 +72,7 @@ export const NAV_LINKS: LinkConfig[] = [
   //{ href: "/publications", label: "Publications" },
   //{ href: "/blog", label: "Blog" },
   { href: "/uses", label: "Evidencias" },
-  { href: "/now", label: "About me" },
+  { href: "/now", label: "Presentación" },
 ]
 
 export const NAVIGATION: LinkConfig[] = NAV_LINKS.map(({ href, label }) => ({
