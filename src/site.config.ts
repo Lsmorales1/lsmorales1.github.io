@@ -97,8 +97,8 @@ export const PUB_CONFIG: PublicationConfig = {
 }
 
 export const FOOTER: FooterConfig = {
-   credits: false, 
-   footerLinks: [],
+  credits: false,
+  footerLinks: [],
 }
 
 if (import.meta.env.DEV && typeof window === "undefined") {
