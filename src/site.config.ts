@@ -7,14 +7,14 @@ import type {
 } from "@/types"
 
 export const SITE: SiteConfig = {
-  title: "Astro Scholar",
+  title: "Laura Morales",
   description:
     "Research in computational social science, open methods, and responsible computing.",
   href: "https://astro-scholar.pages.dev",
   author: "Alex Morgan",
   dir: "ltr",
-  defaultPageImage: "/img/social-preview.png",
-  defaultPostImage: "/img/social-preview.png",
+  defaultPageImage: "/img/IMG_1153",
+  defaultPostImage: "/img/IMG_1153",
 
   locale: {
     lang: "en-US",
