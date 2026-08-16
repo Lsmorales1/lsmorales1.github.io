@@ -84,9 +84,9 @@ export const PUB_CONFIG: PublicationConfig = {
   maxFirstAuthors: 6,
   maxLastAuthors: 1,
   highlightAuthor: {
-    firstName: "Alex",
-    lastName: "Morgan",
-    aliases: ["A. Morgan"],
+    firstName: "Laura",
+    lastName: "Morales",
+    aliases: ["L. Morales"],
   },
   equalSymbols: {
     first: "*",
