@@ -42,11 +42,6 @@ export const SITE: SiteConfig = {
   favicon: "/favicon.ico",
   prerender: true,
   npmCDN: "https://cdn.jsdelivr.net/npm",
-
-  license: {
-    label: "CC-BY-4.0",
-    href: "https://creativecommons.org/licenses/by/4.0/",
-  },
 }
 
 export const PROFILE: ProfileConfig = {
