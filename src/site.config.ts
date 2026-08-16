@@ -97,7 +97,6 @@ export const PUB_CONFIG: PublicationConfig = {
 }
 
 export const FOOTER: FooterConfig = {
-
   footerLinks: [],
 }
 
