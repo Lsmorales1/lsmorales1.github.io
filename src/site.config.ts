@@ -51,10 +51,9 @@ export const SITE: SiteConfig = {
 
 export const PROFILE: ProfileConfig = {
   name: SITE.title,
-  tagline: "Computational social scientist and open-methods",
-  email: "alex@example.edu",
-  location: "Example City",
-  pronouns: "they/them",
+  tagline: "Futura Ingeniera de Sistemas",
+  email: "lsmoralesc@unbosque.edu.co",
+  location: "Bogotá",
   links: {
     github: "https://github.com/mychiffonn/astro-scholar",
     website: "https://mychiffonn.com/",
