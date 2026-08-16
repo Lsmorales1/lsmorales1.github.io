@@ -10,4 +10,48 @@ import Profile from "@/components/profile/Profile.astro"
   breadcrumbs={[{ label: "Perfil", icon: "person" }]}
 >
   <Profile profile={PROFILE} />
+
+  <section class="meet-me">
+    <video class="meet-me-video" src="/videos/conoceme.mp4" controls></video>
+    <div class="meet-me-text">
+      <h2>Conóceme más</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </section>
 </CommonLayout>
+
+<style>
+  .meet-me {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-m);
+    margin-block-start: var(--space-l);
+  }
+
+  .meet-me-video {
+    flex: 1 1 18rem;
+    max-inline-size: 24rem;
+    border-radius: var(--radius);
+    background: var(--muted);
+  }
+
+  .meet-me-text {
+    flex: 1 1 16rem;
+  }
+
+  .meet-me-text h2 {
+    margin: 0 0 var(--space-2xs);
+    font-size: var(--step-1);
+    font-weight: var(--font-weight-medium);
+    color: var(--foreground);
+  }
+
+  .meet-me-text p {
+    margin: 0;
+    color: var(--muted-foreground);
+  }
+</style>
