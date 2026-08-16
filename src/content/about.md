@@ -1,7 +1,3 @@
-I study how computational systems shape public knowledge and collective
-decision-making. My work combines **open data**, reproducible analysis, and
-human-centered evaluation.
+Mi nombre es Laura Sofía Morales Camargo. Soy estudiante de la Universidad El Bosque y actualmente estoy cursando la asignatura de Bases de Datos 1.
 
-This site is generic demonstration content for Astro Scholar. Replace the
-profile, publications, projects, and writing with your own work through the
-Markdown-first customization surfaces documented in the repository.
+Este es mi portafolio de actividades, un espacio donde iré documentando las evidencias, ejercicios y proyectos que desarrolle a lo largo del semestre como parte de mi proceso de aprendizaje en el curso. Aquí encontrarás desde ejercicios de modelado de datos y normalización, hasta scripts SQL y el proyecto final de la asignatura.
