@@ -1,9 +1,235 @@
 ---
 import CommonLayout from "@/layouts/CommonLayout.astro"
-import ToolSection from "@/components/tools/ToolSection.astro"
 
 const evidenciasDescription =
   "Evidencias del proceso: modelado, normalización, SQL y el proyecto final."
+
+type Item = {
+  name: string
+  description: string
+  src: string
+  type: "image" | "pdf" | "link"
+}
+
+const sections: { title: string; items: Item[] }[] = [
+  {
+    title: "Modelado",
+    items: [
+      {
+        name: "Modelo Entidad Relación Proyecto",
+        description: "Diagrama MER del proyecto.",
+        src: "/img/evidencias/Modelos-MODELO ENTIDAD RELACION.drawio.png",
+        type: "image"
+      },
+      {
+        name: "Reducción a tablas",
+        description: "Reducción a tablas del proyecto.",
+        src: "/img/evidencias/Modelos-REDUCCION_A_TABLAS.drawio.png",
+        type: "image"
+      },
+      {
+        name: "Atributos multivaluados MER",
+        description: "Solución de atributos multivaluados.",
+        src: "/img/evidencias/Modelos-MULTIVALUADOS.drawio.png",
+        type: "image"
+      },
+      {
+        name: "Modelado de un EDT",
+        description: "EDT de tareas para el proyecto.",
+        src: "/img/evidencias/Modelos-EDT.drawio.png",
+        type: "image"
+      },
+      {
+        name: "Modelo extendido práctica",
+        description: "Práctica de modelo entidad-relación extendido.",
+        src: "/img/evidencias/PRACTICA MER.jpeg",
+        type: "image"
+      },
+      {
+        name: "Relaciones MER",
+        description: "Primeros ejercicios de práctica MER.",
+        src: "/img/evidencias/Primeros ejercicios.jpeg",
+        type: "image"
+      },
+      {
+        name: "Diagrama relacional",
+        description: "Modelo relacional de ConduCar.",
+        src: "/proyecto/Relational_ConduCar.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Diccionario de datos",
+        description: "Generado con DataModeler.",
+        src: "/proyecto/Diccionario de Datos DataModeler.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Álgebra relacional",
+        description: "Consultas en álgebra relacional.",
+        src: "/proyecto/Algebra Relacional ConduCar.pdf",
+        type: "pdf"
+      }
+    ]
+  },
+  {
+    title: "Normalización",
+    items: [
+      {
+        name: "Ejercicio de normalización 1FN",
+        description: "Reglas de la primera forma normal.",
+        src: "/docs/NORMALIZACION_ejer 3.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Ejercicio de normalización: tienda",
+        description: "Normalización sobre una tienda.",
+        src: "/docs/NORMALIZACION_EJERCICIO_2.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Ejercicio de normalización: centro médico",
+        description: "Normalización sobre un centro médico.",
+        src: "/docs/NORMALIZACION_ejer_1.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Normalización ConduCar",
+        description: "Hoja de cálculo del proceso (se descarga).",
+        src: "/proyecto/Normalizacion_ConduCar.xlsx",
+        type: "link"
+      }
+    ]
+  },
+  {
+    title: "SQL",
+    items: [
+      {
+        name: "Script crear tablas",
+        description: "Script de creación (DDL).",
+        src: "/proyecto/Script Crear Tablas.sql",
+        type: "link"
+      },
+      {
+        name: "Script insertar datos",
+        description: "Inserción de datos de prueba.",
+        src: "/proyecto/Script Insertar Datos.sql",
+        type: "link"
+      },
+      {
+        name: "Script consultas",
+        description: "Consultas sobre la base de datos.",
+        src: "/proyecto/Script Consultas.sql",
+        type: "link"
+      },
+      {
+        name: "Script CHECKS",
+        description: "Restricciones CHECK.",
+        src: "/proyecto/Script CHECKS.sql",
+        type: "link"
+      },
+      {
+        name: "Script usuarios",
+        description: "Creación de usuarios y permisos.",
+        src: "/proyecto/Script Usuarios.sql",
+        type: "link"
+      }
+    ]
+  },
+  {
+    title: "Análisis e implementación",
+    items: [
+      {
+        name: "Análisis RDBMS",
+        description: "Selección del motor de base de datos.",
+        src: "/proyecto/Analisis RDBMS.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Análisis sistema operativo",
+        description: "Selección del sistema operativo.",
+        src: "/proyecto/Analisis Sistema Operativo.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Implementación máquina virtual",
+        description: "Configuración de la máquina virtual.",
+        src: "/proyecto/Implementacion Maquina Virtual.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Implementación RDBMS",
+        description: "Instalación y configuración del motor.",
+        src: "/proyecto/Implementacion RDBMS.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Conexión aplicación web",
+        description: "Conexión de la aplicación con la base de datos.",
+        src: "/proyecto/Conexion Aplicacion Web.pdf",
+        type: "pdf"
+      }
+    ]
+  },
+  {
+    title: "Gestión del proyecto",
+    items: [
+      {
+        name: "Propuesta proyecto final",
+        description: "Propuesta inicial del proyecto.",
+        src: "/proyecto/Propuesta Proyecto Final.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Acta de constitución",
+        description: "Acta de inicio del proyecto.",
+        src: "/proyecto/Acta de Constitucion.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Identificación de interesados",
+        description: "Registro de interesados.",
+        src: "/proyecto/Identificacion de Interesados.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Documento de supuestos",
+        description: "Supuestos y restricciones.",
+        src: "/proyecto/Documento de Supuestos.pdf",
+        type: "pdf"
+      },
+      {
+        name: "EDT / WBS",
+        description: "Estructura de desglose del trabajo.",
+        src: "/proyecto/EDT WBS.pdf",
+        type: "pdf"
+      },
+      {
+        name: "EDT (diagrama)",
+        description: "Diagrama de la EDT.",
+        src: "/proyecto/EDT.drawio.png",
+        type: "image"
+      },
+      {
+        name: "Cronograma",
+        description: "Cronograma del proyecto.",
+        src: "/proyecto/Cronograma.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Presupuesto",
+        description: "Presupuesto del proyecto.",
+        src: "/proyecto/Presupuesto.pdf",
+        type: "pdf"
+      },
+      {
+        name: "Acta de cierre",
+        description: "Acta de cierre del proyecto.",
+        src: "/proyecto/Acta de Cierre.pdf",
+        type: "pdf"
+      }
+    ]
+  }
+]
 ---
 
 <CommonLayout
@@ -13,72 +239,203 @@ const evidenciasDescription =
   breadcrumbs={[{ label: "Evidencias", icon: "file" }]}
   prose={false}
 >
-  <ToolSection
-    title="Modelado"
-    tools={[
-      {
-        name: "Modelo entidad-relación",
-        description: ".",
-        href: "https://example.com/modelado-1",
-        icon: "mingcute:file-line"
-      },
-      {
-        name: "Diagrama relacional",
-        description: ".",
-        href: "https://example.com/modelado-2",
-        icon: "mingcute:file-line"
-      }
-    ]}
-  />
-  <ToolSection
-    title="Normalización"
-    tools={[
-      {
-        name: "Proceso de normalización",
-        description: ".",
-        href: "https://example.com/normalizacion-1",
-        icon: "mingcute:file-line"
-      },
-      {
-        name: "Tablas normalizadas",
-        description: ".",
-        href: "https://example.com/normalizacion-2",
-        icon: "mingcute:file-line"
-      }
-    ]}
-  />
-  <ToolSection
-    title="SQL"
-    tools={[
-      {
-        name: "Script",
-        description: ".",
-        href: "https://example.com/sql-1",
-        icon: "mingcute:code-line"
-      },
-      {
-        name: "Consultas",
-        description: ".",
-        href: "https://example.com/sql-2",
-        icon: "mingcute:code-line"
-      }
-    ]}
-  />
-  <ToolSection
-    title="Proyecto"
-    tools={[
-      {
-        name: "Documento final del proyecto",
-        description: ".",
-        href: "https://example.com/proyecto-1",
-        icon: "mingcute:folder-line"
-      },
-      {
-        name: "Repositorio",
-        description: ".",
-        href: "https://example.com/proyecto-2",
-        icon: "mingcute:folder-line"
-      }
-    ]}
-  />
+  {
+    sections.map((section) => (
+      <section class="ev-section">
+        <h2>{section.title}</h2>
+        <div class="ev-grid">
+          {section.items.map((item) => {
+            const url = encodeURI(item.src)
+            return item.type === "link" ? (
+              <a class="ev-card" href={url} target="_blank" rel="noopener">
+                <span class="ev-badge">Archivo</span>
+                <strong>{item.name}</strong>
+                <span class="ev-desc">{item.description}</span>
+              </a>
+            ) : (
+              <button
+                type="button"
+                class="ev-card"
+                data-visor
+                data-src={url}
+                data-type={item.type}
+                data-title={item.name}
+              >
+                {item.type === "image" ? (
+                  <img src={url} alt={item.name} loading="lazy" />
+                ) : (
+                  <span class="ev-badge">PDF</span>
+                )}
+                <strong>{item.name}</strong>
+                <span class="ev-desc">{item.description}</span>
+              </button>
+            )
+          })}
+        </div>
+      </section>
+    ))
+  }
+
+  <dialog id="visor">
+    <div class="visor-wrap">
+      <div class="visor-bar">
+        <span class="visor-title"></span>
+        <a class="visor-open" href="#" target="_blank" rel="noopener">
+          Abrir en pestaña nueva
+        </a>
+        <button type="button" class="visor-close" aria-label="Cerrar">
+          ✕
+        </button>
+      </div>
+      <div class="visor-body"></div>
+    </div>
+  </dialog>
 </CommonLayout>
+
+<style>
+  .ev-section {
+    margin-bottom: 2.5rem;
+  }
+  .ev-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .ev-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .ev-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.75rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+    border-radius: 0.75rem;
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .ev-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, currentColor 50%, transparent);
+  }
+  .ev-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, currentColor 8%, transparent);
+  }
+  .ev-badge {
+    display: grid;
+    place-items: center;
+    height: 150px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, currentColor 8%, transparent);
+  }
+  .ev-desc {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  #visor {
+    padding: 0;
+    border: none;
+    border-radius: 0.75rem;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: Canvas;
+    color: CanvasText;
+  }
+  #visor::backdrop {
+    background: rgb(0 0 0 / 0.75);
+  }
+  .visor-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .visor-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  }
+  .visor-title {
+    flex: 1;
+    font-weight: 600;
+  }
+  .visor-open {
+    font-size: 0.85rem;
+  }
+  .visor-close {
+    font: inherit;
+    font-size: 1.1rem;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .visor-body {
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+    overflow: auto;
+  }
+  .visor-body :global(img) {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  .visor-body :global(iframe) {
+    width: 90vw;
+    height: 80vh;
+    border: none;
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("#visor")
+  const body = dialog?.querySelector<HTMLElement>(".visor-body")
+  const title = dialog?.querySelector<HTMLElement>(".visor-title")
+  const openLink = dialog?.querySelector<HTMLAnchorElement>(".visor-open")
+  const closeBtn = dialog?.querySelector<HTMLElement>(".visor-close")
+
+  if (dialog && body && title && openLink) {
+    for (const el of document.querySelectorAll<HTMLElement>("[data-visor]")) {
+      el.addEventListener("click", () => {
+        const { src = "", type, title: name = "" } = el.dataset
+        let node: HTMLElement
+        if (type === "pdf") {
+          node = document.createElement("iframe")
+          node.setAttribute("src", src)
+          node.setAttribute("title", name)
+        } else {
+          node = document.createElement("img")
+          node.setAttribute("src", src)
+          node.setAttribute("alt", name)
+        }
+        body.replaceChildren(node)
+        title.textContent = name
+        openLink.href = src
+        dialog.showModal()
+      })
+    }
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close()
+    })
+    closeBtn?.addEventListener("click", () => dialog.close())
+    dialog.addEventListener("close", () => body.replaceChildren())
+  }
+</script>
