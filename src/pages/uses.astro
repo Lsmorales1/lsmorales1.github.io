@@ -239,8 +239,7 @@ const sections: { title: string; items: Item[] }[] = [
   breadcrumbs={[{ label: "Evidencias", icon: "file" }]}
   prose={false}
 >
-  {
-    sections.map((section) => (
+  {sections.map((section) => (
       <section class="ev-section">
         <h2>{section.title}</h2>
         <div class="ev-grid">
@@ -273,8 +272,7 @@ const sections: { title: string; items: Item[] }[] = [
           })}
         </div>
       </section>
-    ))
-  }
+    ))}
 
   <dialog id="visor">
     <div class="visor-wrap">
@@ -283,9 +281,7 @@ const sections: { title: string; items: Item[] }[] = [
         <a class="visor-open" href="#" target="_blank" rel="noopener">
           Abrir en pestaña nueva
         </a>
-        <button type="button" class="visor-close" aria-label="Cerrar">
-          ✕
-        </button>
+        <button type="button" class="visor-close" aria-label="Cerrar">✕</button>
       </div>
       <div class="visor-body"></div>
     </div>
