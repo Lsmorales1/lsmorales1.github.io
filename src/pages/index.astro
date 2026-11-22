@@ -78,15 +78,33 @@ import ToolSection from "@/components/tools/ToolSection.astro"
       title="SQL"
       tools={[
         {
-          name: "Script de creación (DDL)",
-          description: ".",
-          href: "https://example.com/sql-1",
+          name: "Script crear tablas",
+          description: "Script de creación (DDL).",
+          href: "/proyecto/Script%20Crear%20Tablas.sql",
           icon: "mingcute:code-line"
         },
         {
-          name: "Consultas",
-          description: ".",
-          href: "https://example.com/sql-2",
+          name: "Script insertar datos",
+          description: "Inserción de datos de prueba.",
+          href: "/proyecto/Script%20Insertar%20Datos.sql",
+          icon: "mingcute:code-line"
+        },
+        {
+          name: "Script consultas",
+          description: "Consultas sobre la base de datos.",
+          href: "/proyecto/Script%20Consultas.sql",
+          icon: "mingcute:code-line"
+        },
+        {
+          name: "Script CHECKS",
+          description: "Restricciones CHECK.",
+          href: "/proyecto/Script%20CHECKS.sql",
+          icon: "mingcute:code-line"
+        },
+        {
+          name: "Script usuarios",
+          description: "Creación de usuarios y permisos.",
+          href: "/proyecto/Script%20Usuarios.sql",
           icon: "mingcute:code-line"
         }
       ]}
@@ -105,6 +123,112 @@ import ToolSection from "@/components/tools/ToolSection.astro"
           description: ".",
           href: "https://example.com/proyecto-2",
           icon: "mingcute:folder-line"
+        }
+      ]}
+    />
+  </Section>
+  <ToolSection
+      title="Análisis e implementación"
+      tools={[
+        {
+          name: "Análisis RDBMS",
+          description: "Comparación y selección del motor de base de datos.",
+          href: "/proyecto/Analisis%20RDBMS.pdf",
+          icon: "mingcute:file-line"
+        },
+        {
+          name: "Análisis sistema operativo",
+          description: "Análisis y selección del sistema operativo.",
+          href: "/proyecto/Analisis%20Sistema%20Operativo.pdf",
+          icon: "mingcute:file-line"
+        },
+        {
+          name: "Implementación máquina virtual",
+          description: "Configuración de la máquina virtual.",
+          href: "/proyecto/Implementacion%20Maquina%20Virtual.pdf",
+          icon: "mingcute:file-line"
+        },
+        {
+          name: "Implementación RDBMS",
+          description: "Instalación y configuración del motor.",
+          href: "/proyecto/Implementacion%20RDBMS.pdf",
+          icon: "mingcute:file-line"
+        },
+        {
+          name: "Conexión aplicación web",
+          description: "Conexión de la aplicación web con la base de datos.",
+          href: "/proyecto/Conexion%20Aplicacion%20Web.pdf",
+          icon: "mingcute:file-line"
+        }
+      ]}
+    />
+    <ToolSection
+      title="Gestión del proyecto"
+      tools={[
+        {
+          name: "Propuesta proyecto final",
+          description: "Propuesta inicial del proyecto.",
+          href: "/proyecto/Propuesta%20Proyecto%20Final.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "Acta de constitución",
+          description: "Acta de inicio del proyecto.",
+          href: "/proyecto/Acta%20de%20Constitucion.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "Identificación de interesados",
+          description: "Registro de interesados del proyecto.",
+          href: "/proyecto/Identificacion%20de%20Interesados.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "Documento de supuestos",
+          description: "Supuestos y restricciones.",
+          href: "/proyecto/Documento%20de%20Supuestos.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "EDT / WBS",
+          description: "Estructura de desglose del trabajo.",
+          href: "/proyecto/EDT%20WBS.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "EDT (diagrama)",
+          description: "Diagrama de la EDT.",
+          href: "/proyecto/EDT.drawio.png",
+          icon: "mingcute:pic-line"
+        },
+        {
+          name: "Cronograma",
+          description: "Cronograma del proyecto.",
+          href: "/proyecto/Cronograma.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "Presupuesto",
+          description: "Presupuesto del proyecto.",
+          href: "/proyecto/Presupuesto.pdf",
+          icon: "mingcute:folder-line"
+        },
+        {
+          name: "Acta de cierre",
+          description: "Acta de cierre del proyecto.",
+          href: "/proyecto/Acta%20de%20Cierre.pdf",
+          icon: "mingcute:folder-line"
+        }
+      ]}
+    />
+    <ToolSection
+      title="Video"
+      tools={[
+        {
+          name: "Video final de explicación",
+          description: "Explicación del proyecto de base de datos.",
+          href: "/proyecto/VIDEO%20FINAL%20EXPLICACION%20PROYECTO%20BD.mp4",
+          icon: "mingcute:video-line"
         }
       ]}
     />
